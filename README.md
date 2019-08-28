@@ -26,10 +26,12 @@ The app will automatically reload if you change any of the source files.
 
 ## Step 4 - Login with these logins
 
-Teacher:
-login: jsmastery
+# Teacher
+
+user: jsmastery
 password: Imustjs1
 
-Student:
+# Student
+
 login: student1
 password: Student1
