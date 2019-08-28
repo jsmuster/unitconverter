@@ -9,17 +9,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npm install`
 
-## Development server
+## Step 1 - Start Development server
 
 Run two commands, and for that you might need to console windows open
 
 `npm run project`
 
-## Now run the API server
+## Step 2 - Now run the API server
 
 `npm run server`
 
 
-Afterwards Navigate to `http://localhost:4200/`. 
+## Step 3 - Afterwards Navigate to `http://localhost:4200/`
 
 The app will automatically reload if you change any of the source files.
