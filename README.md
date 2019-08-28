@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Step 1 - Start Development server
 
-Run two commands, and for that you might need to console windows open
+Run two commands, and for that you might need two console windows open
 
 `npm run project`
 
