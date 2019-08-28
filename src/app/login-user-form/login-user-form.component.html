@@ -1,0 +1,24 @@
+<div class="row login-wrapp">
+	<div class="col-xs-10 col-lg-3 col-sm-4">
+		<legend>Login User:</legend>
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			
+			<div class="form-group" [ngClass]="{ 'has-error': invalidLogin() }"> <!-- Login -->
+				<label for="user_name" class="control-label">User name</label>
+				<input type="text" formControlName="user_name" class="form-control" id="user_name" name="user_name" placeholder="Type your username">
+				<p *ngIf="invalidLogin()" id="login_error" class="help-block">{{this.serviceErrors.user_name || 'Invalid user name.'}}</p>
+			</div>
+			
+			<div class="form-group" [ngClass]="{ 'has-error': invalidPassword() }"> <!-- Password -->
+				<label for="password" class="control-label">Password</label>
+				<input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="Type your password">
+				<p *ngIf="invalidPassword()" id="password_error" class="help-block">{{this.serviceErrors.password || 'Invalid password.'}}</p>
+			</div>
+			
+			<div class="form-group has-error"> <!-- Login Button -->
+				<button type="submit" class="btn btn-primary btn-block">Login</button>
+			</div>
+
+		</form>	
+	</div>
+</div>

@@ -1,0 +1,9 @@
+div, h4 {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+h4 span {
+	width: 70px;
+}

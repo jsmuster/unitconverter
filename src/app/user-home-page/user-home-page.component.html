@@ -1,0 +1,112 @@
+
+ <div class="card w-100">
+   <div class="card-body w-100">
+     <div id="table" class="table-editable w-100">
+       <table class="table table-bordered d table-striped text-center bg-white">
+         <tr>
+           <th class="text-center">Input Numerical Value</th>
+           <th class="text-center">Input Unit of Measure</th>
+           <th class="text-center">Target Unit of measure</th>
+           <th class="text-center">Student Response</th>
+           <th class="text-center">Output</th>
+           <th class="text-center" *ngIf="user_type === 'admin'">Remove</th>
+         </tr>
+         <tr *ngFor="let row of dataTable; let id = index">
+           <td > 
+             	 <input 
+             	 	*ngIf="user_type === 'admin'" 
+             	 	type="number" 
+             		[value]="row.inputNumber"
+             		(change)="changeValue(id,'inputNumber',$event)" 
+                class="form-control custom-min-w">
+             		<div *ngIf="user_type != 'admin'">{{row.inputNumber }}</div>
+           </td>
+
+           <td>
+             <select 
+             *ngIf="user_type === 'admin'" 
+             (change)="changeValue(id,'inputUnitMeasureId',$event)" 
+             class="form-control custom-min-w">
+               <option 
+               *ngFor="let unit of row.avaliableUnitMeasure; let id = index" [disabled]="unit.group === true" 
+               [value]="id" 
+               [selected]="+id == +row.inputUnitMeasureId ? true : false">
+               	{{ unit.label }}
+               </option>
+             </select>
+
+             <div *ngIf="user_type != 'admin' && row.inputUnitMeasureId !=''">
+             	{{ row.avaliableUnitMeasure[row.inputUnitMeasureId].label || '' }}
+             </div>
+           </td>
+
+          <td>
+            <select 
+            	*ngIf="user_type === 'admin'"
+            	(change)="changeValue(id,'targetUnitMeasureId',$event)" 
+            	class="form-control custom-min-w">
+              <option 
+              	*ngFor="let unit of row.avaliableUnitMeasure; let id = index" 
+              	[disabled]="unit.group === true" 
+              	[value]="id" 
+              	[selected]="+id == +row.targetUnitMeasureId ? true : false">
+              	{{ unit.label }}
+              </option>
+            </select>
+            <div *ngIf="user_type != 'admin' && row.targetUnitMeasureId != ''">
+            	{{ row.avaliableUnitMeasure[row.targetUnitMeasureId].label || '' }}
+            </div>
+          </td>
+
+           <td>
+           	<div 
+           		*ngIf="user_type === 'admin'" 
+           		class="w-75 d-inline-block h-50">
+           		{{row.studentResponse}}
+           	</div>
+             <input 
+             	*ngIf="user_type != 'admin'" 
+             	class="border w-75 d-inline-block h-50 form-control"  
+             	(change)="changeValue(id, 'studentResponse', $event)" 
+              [value]="row.studentResponse" />
+           </td>
+
+           <td>
+             <select 
+             *ngIf="user_type === 'admin'"
+             	(change)="changeValue(id,'answerId',$event)" 
+             	class="form-control custom-min-w">
+	               <option *ngFor="let unit of row.avaliableAnswers; let id = index" 
+	               [value]="id" 
+	               [disabled]="unit.group === true"
+	               [selected]="id == row.answerId ? true : false"
+	               >
+               	{{ unit.label }}
+               </option>
+             </select>
+             <div *ngIf="user_type != 'admin' && row.answerId != ''">
+             	{{ row.avaliableAnswers[row.answerId].label || '' }}
+             </div>
+           </td>
+
+           <td *ngIf="user_type === 'admin'">
+             <span class="table-remove">
+               <button type="button" class="my-0 btn btn-danger" (click)="remove(id)">Remove</button>
+             </span>
+           </td>
+
+         </tr>
+         </table>
+     </div>
+      <span (click)="getDataTable()" class="float-right refresh-btn text-primary mt-3">
+        Reload <i class="fa fa-refresh" ></i>
+      </span>
+     <span *ngIf="user_type === 'admin'"  class="table-add float-right mb-3 mr-5 mt-3">
+       <a class="text-success" (click)="add()">
+         Add row
+         <i class="fa fa-plus" [ngClass]="{'rotate-animation' : rotateAnimtaion}"></i>
+       </a>
+     </span>
+   </div>
+ </div>
+
