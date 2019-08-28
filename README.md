@@ -23,3 +23,13 @@ Run two commands, and for that you might need to console windows open
 ## Step 3 - Afterwards Navigate to `http://localhost:4200/`
 
 The app will automatically reload if you change any of the source files.
+
+## Step 4 - Login with these logins
+
+Teacher:
+login: jsmastery
+password: Imustjs1
+
+Student:
+login: student1
+password: Student1
