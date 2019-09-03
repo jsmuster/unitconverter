@@ -1,4 +1,4 @@
-# A Simple Multi User Application via (Angular6  + Reactive Forms + Route Guard + Http Interceptor + JWT) + (Node + Express)
+# A Simple Multi User Application via (Angular7  + Reactive Forms + Route Guard + Http Interceptor + JWT) + (Node + Express)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
